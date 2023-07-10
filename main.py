@@ -8,4 +8,4 @@ for material in list(sorted_k):
     plot_surf(Temp = Temp, tau = tau, title = material)
     plot_cuts(Temp = Temp, tau = tau, title = material)
 
-plot_conv_times(conv_times = conv_times, k = sorted_k)
+plot_conv_times(conv_times = conv_times)
