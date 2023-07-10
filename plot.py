@@ -52,7 +52,7 @@ def plot_cuts(Temp, tau, title):
     plt.show()
 
 # plots time to converge
-def plot_conv_times(conv_times, k):
+def plot_conv_times(conv_times):
 
     # x = np.linspace(0,130,1500)
     # y = 5/x
@@ -61,10 +61,10 @@ def plot_conv_times(conv_times, k):
     DF_conv = pd.DataFrame({'Material':[],'k':[],'Time':[]})
 
     for i in range(len(conv_times)):
-        DF_conv.loc[len(DF_conv)] = [list(k.keys())[i], list(k.values())[i], conv_times[i]]
-        plt.scatter(list(k.values())[i]*10**6, conv_times[i], label = list(k.keys())[i], c = colors[i%len(colors)])
+        DF_conv.loc[len(DF_conv)] = [list(sorted_k.keys())[i], list(sorted_k.values())[i], conv_times[i]]
+        plt.scatter(list(sorted_k.values())[i]*10**6, conv_times[i], label = list(sorted_k.keys())[i], c = colors[i%len(colors)])
 
-    DF_conv.to_csv('Punto A/Convergence times.csv', index = False)
+    DF_conv.to_csv('Convergence times.csv', index = False)
 
     plt.xlabel('k [$10^6m^2/t$]')
     plt.ylabel('Convergence time [s]')
